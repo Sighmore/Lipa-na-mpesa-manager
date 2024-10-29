@@ -23,21 +23,20 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import inoxoft.simon.businesstill.ui.theme.green
 
 @Composable
-fun SignInScreen(modifier: Modifier, navController: NavHostController) {
+fun ResetTillPin(modifier: Modifier, navController: NavHostController) {
     Column(modifier.padding(10.dp), verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
 
-        var pin by remember { mutableStateOf("") }
         var storeNo by remember { mutableStateOf("") }
         var tillNo by remember { mutableStateOf("") }
+        var email by remember { mutableStateOf("") }
 
         Image(
             modifier = Modifier
@@ -46,7 +45,7 @@ fun SignInScreen(modifier: Modifier, navController: NavHostController) {
             imageVector = Icons.Default.Person,
             contentDescription = null,
 
-        )
+            )
         Spacer(modifier= Modifier.height(16.dp))
         Text(text = "WELCOME BACK", color= green, fontSize = 30.sp)
         Spacer(modifier = Modifier.height(20.dp))
@@ -67,23 +66,23 @@ fun SignInScreen(modifier: Modifier, navController: NavHostController) {
             label = { Text(text = "store Number") },
             shape = RoundedCornerShape(16.dp)
         )
-        Spacer(modifier = Modifier.height(16.dp))
 
+        Spacer(modifier = Modifier.height(32.dp))
 
         OutlinedTextField(
             modifier = Modifier.fillMaxWidth(),
-            value = pin,
-            onValueChange = { pin = it },
-            label = { Text(text = "pin") },
+            value = email,
+            onValueChange = { email = it },
+            label = { Text(text = "Account Email") },
             shape = RoundedCornerShape(16.dp)
         )
 
         Spacer(modifier = Modifier.height(32.dp))
 
         Row(horizontalArrangement = Arrangement.Center) {
-            Button(onClick = { navController.navigate("homeTill") }) {
+            Button(onClick = { }) {
 
-                Text(text = "Login")
+                Text(text = "Reset Pin")
 
             }
         }
@@ -92,10 +91,10 @@ fun SignInScreen(modifier: Modifier, navController: NavHostController) {
 
 
         Row(horizontalArrangement = Arrangement.Center,verticalAlignment = Alignment.CenterVertically) {
-            Text(text = "Forgot Account Pin?")
+            Text(text = "Have a  Pin?")
             Spacer(modifier = Modifier.width(8.dp))
-            Button(onClick = { navController.navigate("ResetTillPin") }) {
-                Text(text = "Reset Pin")
+            Button(onClick = { navController.navigate("Signup") }) {
+                Text(text = "Login")
             }
 
         }

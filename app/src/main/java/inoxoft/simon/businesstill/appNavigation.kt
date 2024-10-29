@@ -8,7 +8,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import inoxoft.simon.businesstill.view.pages.HomeScreen
-import inoxoft.simon.businesstill.view.pages.LoginScreen
+import inoxoft.simon.businesstill.view.pages.ResetTillPin
 import inoxoft.simon.businesstill.view.pages.ReverseTransactionScreen
 import inoxoft.simon.businesstill.view.pages.SignInScreen
 import inoxoft.simon.businesstill.view.pages.TillHomeScreen
@@ -24,7 +24,7 @@ fun AppNavigation(modifier: Modifier = Modifier, scrollBehavior: TopAppBarScroll
     val navController = rememberNavController()
     NavHost(navController = navController, startDestination = "home", builder = {
         composable("home"){ HomeScreen(modifier,navController) }
-        composable("login"){ LoginScreen(modifier,navController) }
+        composable("ResetTillPin"){ ResetTillPin(modifier,navController) }
         composable("Signup"){ SignInScreen(modifier,navController) }
         composable("homeTill"){ TillHomeScreen(modifier,navController,scrollBehavior) }
         composable("TillToTill"){ TillToTillScreen(modifier) }

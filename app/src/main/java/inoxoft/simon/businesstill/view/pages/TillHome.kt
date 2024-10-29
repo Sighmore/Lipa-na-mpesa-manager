@@ -2,8 +2,10 @@ package inoxoft.simon.businesstill.view.pages
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -15,6 +17,12 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Menu
+import androidx.compose.material.icons.filled.Notifications
+import androidx.compose.material.icons.filled.Person
+import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -29,6 +37,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -44,8 +53,54 @@ fun TillHomeScreen(
 ) {
     Column(modifier.verticalScroll(rememberScrollState())) {
         TopBar(modifier, scrollBehavior)
-        Spacer(modifier = Modifier.height(30.dp))
+        Spacer(modifier = Modifier.height(20.dp))
         CardSection(modifier.fillMaxWidth())
+        Spacer(modifier=Modifier.height(16.dp))
+        BottomBar(modifier)
+    }
+}
+
+data class BottomBarItem(
+    val icon: ImageVector,
+    val label: String
+)
+
+@Composable
+fun BottomBar(modifier: Modifier) {
+    val items = listOf(
+        BottomBarItem(
+            icon = Icons.Default.Home,
+            label = "Home"
+        ),
+        BottomBarItem(
+            icon = Icons.Default.Menu,
+            label = "Records"
+        ),
+        BottomBarItem(
+            icon = Icons.Default.Person,
+            label = "Customer"
+        ),
+        BottomBarItem(
+            icon = Icons.Default.Notifications,
+            label = "notifications"
+        ),
+    )
+    BottomAppBar {
+        Row(modifier=Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceAround,verticalAlignment = Alignment.CenterVertically) {
+            items.forEach { item ->
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.Center
+                ) {
+                    Icon(
+                        imageVector = item.icon,
+                        contentDescription = item.label,
+                    )
+                    Text(text = item.label)
+                }
+            }
+        }
     }
 }
 
@@ -59,7 +114,7 @@ fun CardSection(modifier: Modifier) {
             .clip(RoundedCornerShape(20.dp))
             .background(
                 brush = Brush.horizontalGradient(
-                    listOf(Color.Green, Color.Yellow)
+                    listOf(MaterialTheme.colorScheme.primary, Color.Yellow)
                 )
             )
         )
@@ -81,7 +136,7 @@ fun CardContent(modifier: Modifier= Modifier) {
 Box(modifier = modifier.background(
     brush = Brush.linearGradient(
         listOf(
-            MaterialTheme.colorScheme.primary,
+            Color.Green,
             MaterialTheme.colorScheme.error
         )
     )
@@ -89,10 +144,10 @@ Box(modifier = modifier.background(
     Icon(
         painter = painterResource(id = R.drawable.icon),
         contentDescription ="Icon",
-        tint = MaterialTheme.colorScheme.background.copy(0.2f),
+        tint = MaterialTheme.colorScheme.background.copy(0.5f),
         modifier = Modifier
             .fillMaxSize()
-            .offset(150.dp, 88.dp)
+            .offset(100.dp, 30.dp)
         )
 }
 }
@@ -105,7 +160,7 @@ fun TopBar(modifier:Modifier,scrollBehavior: TopAppBarScrollBehavior){
     TopAppBar(
         scrollBehavior=scrollBehavior,
         title = {
-            Box(modifier = modifier.padding(end = 20.dp)){
+            Box(modifier = modifier.padding(end = 20.dp).fillMaxWidth()){
                 Box(modifier = Modifier
                     .clip(CircleShape)
                     .size(40.dp)
@@ -126,8 +181,8 @@ fun TopBar(modifier:Modifier,scrollBehavior: TopAppBarScrollBehavior){
                     painter = painterResource(id = R.drawable.profile),
                     contentDescription ="Account profile picture",
                     modifier = Modifier
-                        .size(50.dp)
-                        .clip(RoundedCornerShape(12.dp))
+                        .size(40.dp)
+                        .clip(CircleShape)
                         .align(Alignment.CenterEnd)
 
                     )
