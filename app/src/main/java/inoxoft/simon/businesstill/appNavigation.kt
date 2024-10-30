@@ -7,14 +7,14 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import inoxoft.simon.businesstill.view.pages.HomeScreen
-import inoxoft.simon.businesstill.view.pages.ResetTillPin
-import inoxoft.simon.businesstill.view.pages.ReverseTransactionScreen
-import inoxoft.simon.businesstill.view.pages.SignInScreen
-import inoxoft.simon.businesstill.view.pages.TillHomeScreen
-import inoxoft.simon.businesstill.view.pages.TillToTillScreen
-import inoxoft.simon.businesstill.view.pages.TransactionHistory
-import inoxoft.simon.businesstill.view.pages.TransactionInitScreen
+import inoxoft.simon.businesstill.view.pages.auth.HomeScreen
+import inoxoft.simon.businesstill.view.pages.auth.ResetTillPin
+import inoxoft.simon.businesstill.view.pages.Transactions.ReverseTransactionScreen
+import inoxoft.simon.businesstill.view.pages.auth.SignInScreen
+import inoxoft.simon.businesstill.view.pages.main.TillHomeScreen
+import inoxoft.simon.businesstill.view.pages.payments.TillToTillScreen
+import inoxoft.simon.businesstill.view.pages.Transactions.TransactionHistory
+import inoxoft.simon.businesstill.view.pages.Transactions.TransactionInitScreen
 
 
 @OptIn(ExperimentalMaterial3Api::class)

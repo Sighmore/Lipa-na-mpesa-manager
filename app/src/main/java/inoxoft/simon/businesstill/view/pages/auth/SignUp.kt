@@ -1,4 +1,4 @@
-package inoxoft.simon.businesstill.view.pages
+package inoxoft.simon.businesstill.view.pages.auth
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -14,6 +14,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -24,10 +25,12 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import inoxoft.simon.businesstill.ui.theme.green
+import inoxoft.simon.businesstill.ui.theme.lightBlue
 
 @Composable
 fun SignInScreen(modifier: Modifier, navController: NavHostController) {
@@ -42,10 +45,11 @@ fun SignInScreen(modifier: Modifier, navController: NavHostController) {
         Image(
             modifier = Modifier
                 .padding(10.dp)
-                .size(150.dp),
+                .size(150.dp)
+            ,
             imageVector = Icons.Default.Person,
             contentDescription = null,
-
+            colorFilter = ColorFilter.tint(lightBlue)
         )
         Spacer(modifier= Modifier.height(16.dp))
         Text(text = "WELCOME BACK", color= green, fontSize = 30.sp)
@@ -81,7 +85,11 @@ fun SignInScreen(modifier: Modifier, navController: NavHostController) {
         Spacer(modifier = Modifier.height(32.dp))
 
         Row(horizontalArrangement = Arrangement.Center) {
-            Button(onClick = { navController.navigate("homeTill") }) {
+            Button(onClick = { navController.navigate("homeTill") },
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = green // Set the background color to green
+                )
+                ) {
 
                 Text(text = "Login")
 
@@ -94,7 +102,11 @@ fun SignInScreen(modifier: Modifier, navController: NavHostController) {
         Row(horizontalArrangement = Arrangement.Center,verticalAlignment = Alignment.CenterVertically) {
             Text(text = "Forgot Account Pin?")
             Spacer(modifier = Modifier.width(8.dp))
-            Button(onClick = { navController.navigate("ResetTillPin") }) {
+            Button(
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = lightBlue // Set the background color to green
+                ),
+                onClick = { navController.navigate("ResetTillPin") }) {
                 Text(text = "Reset Pin")
             }
 

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "8897582046",
+    "project_id": "lipa-na-mpesa-9b94f",
+    "storage_bucket": "lipa-na-mpesa-9b94f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:8897582046:android:d1a01d20dee80a563c034f",
+        "android_client_info": {
+          "package_name": "inoxoft.simon.businesstill"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9TtNMQaBQhUr4pupeVEhm7tVxfUlnZ64"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

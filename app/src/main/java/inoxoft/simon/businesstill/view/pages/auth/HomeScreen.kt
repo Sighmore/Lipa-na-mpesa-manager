@@ -1,4 +1,4 @@
-package inoxoft.simon.businesstill.view.pages
+package inoxoft.simon.businesstill.view.pages.auth
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -27,6 +28,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import inoxoft.simon.businesstill.R
 import inoxoft.simon.businesstill.ui.theme.green
+import inoxoft.simon.businesstill.ui.theme.lightBlue
 
 
 @Composable
@@ -50,7 +52,7 @@ fun HomeScreen(modifier: Modifier, navController: NavHostController) {
                 Text(text = "To",
                     fontWeight = FontWeight.Bold,
                     fontSize = 30.sp,
-                    color = Color.Red
+                    color = lightBlue
                 )
                 Spacer(modifier = Modifier.height(10.dp))
 
@@ -68,21 +70,18 @@ fun HomeScreen(modifier: Modifier, navController: NavHostController) {
         }
 
 
+        Spacer(modifier = Modifier.height(130.dp))
 
-
-
-        Spacer(modifier = Modifier.height(16.dp))
-
-
-
-        Spacer(modifier = Modifier.height(100.dp))
-
-        Button(onClick = { navController.navigate("Signup") },
-            modifier = Modifier.align(Alignment.CenterHorizontally).width(250.dp)
-
-            ) {
-            Text(text = "Manage Till"
+        Button(
+            onClick = { navController.navigate("Signup") },
+            modifier = Modifier
+                .align(Alignment.CenterHorizontally)
+                .width(250.dp),
+            colors = ButtonDefaults.buttonColors(
+                containerColor = green // Set the background color to green
             )
+        ) {
+            Text(text = "Manage Till")
         }
         Spacer(modifier = Modifier.height(16.dp))
         Row (modifier = Modifier.fillMaxWidth(),
@@ -91,7 +90,12 @@ fun HomeScreen(modifier: Modifier, navController: NavHostController) {
             ){
             Text(text = "Forgot Pin?")
             Spacer(modifier= Modifier.width(10.dp))
-            Button (onClick = {navController.navigate("ResetTillPin")}){
+            Button (
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = lightBlue // Set the background color to green
+                ),
+                onClick = {navController.navigate("ResetTillPin")}
+            ){
                 Text(text = "Reset")
             }
         }
