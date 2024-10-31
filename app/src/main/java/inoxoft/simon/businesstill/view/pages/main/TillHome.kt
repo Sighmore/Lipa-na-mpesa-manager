@@ -21,6 +21,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.AddCircle
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Home
@@ -176,11 +177,11 @@ fun TransactionSection(x0: NavHostController, x1: Modifier) {
                             navController.navigate("transactionInit")
                         }),
 
-                        imageVector = Icons.Default.Person,
+                        imageVector = Icons.Default.AddCircle,
                         contentDescription = "Init",
                         tint = MaterialTheme.colorScheme.onBackground
                     )
-                    Text(text = "Customers")
+                    Text(text = "Request")
 
                 }
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
