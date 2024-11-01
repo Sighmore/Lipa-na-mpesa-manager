@@ -7,6 +7,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import inoxoft.simon.businesstill.view.pages.Transactions.NotificationScreen
 import inoxoft.simon.businesstill.view.pages.auth.HomeScreen
 import inoxoft.simon.businesstill.view.pages.auth.ResetTillPin
 import inoxoft.simon.businesstill.view.pages.Transactions.ReverseTransactionScreen
@@ -14,7 +15,7 @@ import inoxoft.simon.businesstill.view.pages.auth.SignInScreen
 import inoxoft.simon.businesstill.view.pages.main.TillHomeScreen
 import inoxoft.simon.businesstill.view.pages.payments.TillToTillScreen
 import inoxoft.simon.businesstill.view.pages.Transactions.TransactionHistory
-import inoxoft.simon.businesstill.view.pages.Transactions.TransactionInitScreen
+import inoxoft.simon.businesstill.view.pages.payments.TransactionInitScreen
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -31,6 +32,7 @@ fun AppNavigation(modifier: Modifier = Modifier, scrollBehavior: TopAppBarScroll
         composable("TransactionHistory"){ TransactionHistory(modifier) }
         composable("transactionInit"){ TransactionInitScreen(modifier) }
         composable("reverseTransaction"){ ReverseTransactionScreen(modifier) }
+        composable("notificationScreen"){ NotificationScreen(modifier,navController) }
     })
 }
 

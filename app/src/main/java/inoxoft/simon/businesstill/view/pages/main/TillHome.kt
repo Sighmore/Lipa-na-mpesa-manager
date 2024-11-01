@@ -70,7 +70,7 @@ fun TillHomeScreen(
             Spacer(modifier = Modifier.height(10.dp))
             CardSection(modifier.fillMaxWidth())
             Spacer(modifier = Modifier.height(12.dp))
-            TransactionSection(navController,modifier)
+            TransactionSection(navController,modifier,navController)
         }
         BottomBar(
             navController,
@@ -82,7 +82,7 @@ fun TillHomeScreen(
     }
 
 @Composable
-fun TransactionSection(x0: NavHostController, x1: Modifier) {
+fun TransactionSection(x0: NavHostController, x1: Modifier, navController: NavHostController) {
     Column {
         Text(
             modifier = Modifier.padding(start = 30.dp),
@@ -96,12 +96,12 @@ fun TransactionSection(x0: NavHostController, x1: Modifier) {
                 Icon(
                     modifier = Modifier.clip(CircleShape)
                         .clickable(onClick = {
-                        //TODO: navigate to customers
+                        navController.navigate("TillToTill")
                     }).size(30.dp),
                     imageVector = Icons.Default.AccountCircle, contentDescription = "Home",
                     tint = green
                 )
-                Text(text = "pay")
+                Text(text = "pay till")
             }
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
                 Icon(
@@ -186,8 +186,9 @@ fun TransactionSection(x0: NavHostController, x1: Modifier) {
                 }
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
                     Icon(
-                        modifier= Modifier.clickable(onClick={
-                            //TODO: navigate to notifications
+                        modifier= Modifier.clip(CircleShape)
+                            .clickable(onClick={
+                            navController.navigate("notificationScreen")
                         }),
                         imageVector = Icons.Default.Notifications,
                         contentDescription = "Notifications",

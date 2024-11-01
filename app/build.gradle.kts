@@ -73,6 +73,10 @@ dependencies {
     //navigation
     implementation(libs.androidx.navigation.compose)
 
+    implementation(platform("com.google.firebase:firebase-bom:32.2.0"))
+    implementation("com.google.firebase:firebase-analytics-ktx")
+    implementation("com.google.firebase:firebase-messaging-ktx")
+    implementation("com.google.firebase:firebase-config-ktx")
     //viewmodel
     implementation(libs.androidx.lifecycle.viewmodel.compose)
         //livedata
